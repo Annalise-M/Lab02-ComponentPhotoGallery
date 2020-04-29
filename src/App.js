@@ -1,26 +1,66 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import creatureData from './data.js';
+import ImageItem from './ImageItem.js';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+// import default from './header.js';
+
+class App extends React.Component {
+  state = { selected: null };
+
+  handleChange = (e) => {
+    console.log(e.target.value)
+    this.setState({ selected: e.target.value });
+  };
+
+  render() {
+
+
+    return (
+      <div>
+        <header>
+          <img src="" alt="Horned Creatures"/>
+          <h1>Logo and Title</h1>
+        </header>
+    
+        <main>
+          <section className="options">
+
+          <section className="creature-type-filter" onChange={this.handleChange}>
+            <option value="" defaultValue>
+              All Types
+            </option>
+            <option value="">HornedAnimal</option>
+            <option value="">HornedAnimal</option>
+            <option value="">HornedAnimal</option>
+            <option value="">HornedAnimal</option>
+          </section>
+
+        </section> 
+
+        <section className="HornedAnimal">
+          <ul className="creatures">
+            {
+              creatureData
+                .filter(creature => {
+                  //if nothing selected, show all
+                  if (!this.state.selected) return true;
+
+                  //otherwise only show the animal if the animal type is the same as what was selected
+                  return creature.keyword === this.state.selected;
+                })
+                .map(animal => {
+                  console.log(animal);
+              return <ImageItem creature={animal} />
+                //^This is the difinitive pic placed here?
+                })
+          }
+          </ul>
+        </section>
+      </main>
     </div>
-  );
+    );
+  }
 }
-
 export default App;
