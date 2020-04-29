@@ -1,17 +1,17 @@
-import React from 'react';
+import React, { Component } from 'react';
 import creatureData from './data.js';
 import ImageItem from './ImageItem.js';
 import './App.css';
 
 // import default from './header.js';
 
-class App extends React.Component {
+class App extends Component {
   state = { selected: null };
 
   handleChange = (e) => {
     console.log(e.target.value)
-    this.setState({ selected: e.target.value });
-  };
+    this.setState({ selected: e.target.value })
+  }
 
   render() {
 
@@ -19,14 +19,16 @@ class App extends React.Component {
     return (
       <div>
         <header>
+          {/* Logo */}
           <img src="" alt="Horned Creatures"/>
-          <h1>Logo and Title</h1>
+          {/* Title */}
+          <h1>Horned Creatures</h1>
         </header>
     
         <main>
           <section className="options">
 
-          <section className="creature-type-filter" onChange={this.handleChange}>
+          <section className="creature-type-filter"onChange={this.handleChange}>
             <option value="" defaultValue>
               All Types
             </option>
@@ -54,6 +56,7 @@ class App extends React.Component {
         </section> 
 
         <section className="HornedAnimal">
+          <div>
           <ul className="creatures">
             {
               creatureData
@@ -65,12 +68,13 @@ class App extends React.Component {
                   return creature.keyword === this.state.selected;
                 })
                 .map(animal => {
-                  console.log(animal);
+                  // console.log(animal);
               return <ImageItem creature={animal} />
                 //^This is the difinitive pic placed here?
                 })
           }
           </ul>
+          </div>
         </section>
       </main>
     </div>
