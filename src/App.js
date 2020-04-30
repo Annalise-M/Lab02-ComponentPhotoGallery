@@ -26,13 +26,12 @@ class App extends Component {
         </header>
     
         <main>
+          
           <section className="options">
-          <section className="creature-type-filter"onChange={this.handleChange}>
-          <ul>
+          <select className="creature-type-filter"onChange={this.handleChange}>
             <option value="" defaultValue>
               All Types
             </option>
-            {/* Start inputing dynamic data */}
             <option value="UniWhal">UniWhal</option>
             <option value="rhino">Rhino Family</option>
             <option value="unicorn">Unicorn Head</option>
@@ -51,10 +50,9 @@ class App extends Component {
             <option value="chameleon">Serious Jackson's Chameleon</option>
             <option value="lizard">Horned Lizard</option>
             <option value="dragon">Smaug</option>
-          </ul>
-          </section>
+          </select>
         </section> 
-
+        
         <section className="HornedAnimal">
           <div>
           <ul className="creatures">
