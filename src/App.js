@@ -27,8 +27,8 @@ class App extends Component {
     
         <main>
           <section className="options">
-
           <section className="creature-type-filter"onChange={this.handleChange}>
+          <ul>
             <option value="" defaultValue>
               All Types
             </option>
@@ -51,8 +51,8 @@ class App extends Component {
             <option value="chameleon">Serious Jackson's Chameleon</option>
             <option value="lizard">Horned Lizard</option>
             <option value="dragon">Smaug</option>
+          </ul>
           </section>
-
         </section> 
 
         <section className="HornedAnimal">
