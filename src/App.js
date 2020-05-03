@@ -2,14 +2,12 @@ import React, { Component } from 'react';
 import creatureData from './data.js';
 import ImageItem from './ImageItem.js';
 import './App.css';
-
-// import default from './header.js';
+import Header from './header.js';
 
 class App extends Component {
   state = { selected: null };
 
   handleChange = (e) => {
-    console.log(e.target.value)
     this.setState({ selected: e.target.value })
   }
 
@@ -18,13 +16,8 @@ class App extends Component {
 
     return (
       <div>
-        <header>
-          {/* Logo */}
-          <img src="" alt="Horned Creatures"/>
-          {/* Title */}
-          <h1>Horned Creatures</h1>
-        </header>
-    
+        <Header />
+          
         <main>
           
           <section className="options">
